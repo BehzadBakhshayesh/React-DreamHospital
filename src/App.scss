@@ -1,0 +1,21 @@
+$color1: #001529;
+
+.App {
+  .Layout{
+    .Header{
+      height: 80px;
+    }
+    .Content{ 
+      padding:30px  40px;
+    }
+    .Footer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color1;
+      font-size: 1.8rem;
+      font-weight: bold;
+      border-top: 1px solid $color1;
+    }
+  }
+}

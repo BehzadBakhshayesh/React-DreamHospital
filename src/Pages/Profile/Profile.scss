@@ -1,0 +1,41 @@
+$color1: #001529;
+$color2:#1890ff;
+
+@mixin flx {
+    display: flex;
+    align-items: center;
+}
+
+.Profile{
+    .innerProfile{
+        width: 100%;
+       @include flx;
+        justify-content: space-around;
+        .infoContainer{
+            height: 100%;
+            flex-basis: 50%;
+            @include flx;
+            justify-content: center;
+            ul{
+                li{
+                    color: $color2;
+                    font-size: 1.8rem;
+                    font-weight: bold;
+                    padding: 10px;
+                    span{
+                        color: $color1;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+        .imageContainer{
+            flex-basis: 50%;
+            @include flx;
+            justify-content: center;
+            img{
+                max-width: 400px;
+            }
+        }
+    }
+}
