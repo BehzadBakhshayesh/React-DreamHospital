@@ -1,18 +1,7 @@
-export function doctors (state={
-    full: [],
-    filtered: [],
-}, action){
+export function doctors (state=[], action){
     switch (action.type){
-        case 'DOCTORS' : return {...state, full: action.payload}
-        case 'FILTERED' : return {...state, filtered: action.payload}
-        case 'CLEAR_FILTERED' : return {...state, filtered: []}
+        case 'DOCTORS' : return action.payload
         default : return state
     }
 }
 
-export function loading (state=true, action){
-    switch (action.type){
-        case 'LOADING' : return action.payload
-        default : return state
-    }
-}

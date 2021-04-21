@@ -1,21 +1,31 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { Form, Input, Button } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
-import { searchName } from '../../Redux/actions/search'
-import { Input } from 'antd';
+import { getSearch } from '../../Redux/actions/search'
+import { inputValue } from '../../Redux/actions/inputValue'
 import './Search.scss'
 
+
 const Search = () => {
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState('')
     const dispatch = useDispatch()
     const changeHandle = (e) => {
-        setInput(e.target.value);
-        dispatch(searchName(e.target.value))
+        setInput(e.target.value)
     }
+    const submitHandle = (e) => {
+        e.preventDefault()
+        dispatch(getSearch(input))
+        dispatch(inputValue(input))
+    }
+
     return (
         <>
             <div className='Search'>
-                <Input placeholder="...جستجو" onChange={(e) => changeHandle(e)} value={input} />
+                <form className='form' onSubmit={(e) => submitHandle(e)}>
+                    <Input placeholder='...جستجو' onChange={(e) => changeHandle(e)} value={input} />
+                    <Button htmlType='submit' icon={<SearchOutlined />} />
+                </form>
             </div>
         </>
     )

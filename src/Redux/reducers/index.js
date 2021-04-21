@@ -1,9 +1,12 @@
 import {combineReducers} from 'redux'
-import {doctors, loading} from './doctors'
+import {doctors} from './doctors'
+import {loading} from './loading'
+import {search} from './search'
 import {inputValue} from './inputValue'
 
 export default combineReducers({
     doctors,
     loading,
-    inputValue,
+    search,
+    inputValue, 
 })

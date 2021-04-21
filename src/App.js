@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout} from 'antd'
+import { Layout } from 'antd'
 import { Switch, Route } from 'react-router-dom'
 import Header from './Components/Header/Header'
 import Home from './Pages/Home/Home'
@@ -10,7 +10,7 @@ import './App.scss'
 const { Header: AntHeader, Footer: AntFooter, Content } = Layout;
 
 const App = () => {
- 
+
   return (
     <>
       <main className='App'>
@@ -25,9 +25,9 @@ const App = () => {
               <Route path="*" component={NotFound} />
             </Switch>
           </Content>
-          <AntFooter className='Footer'>
-          <span>&copy;Copyright</span>
-          </AntFooter>
+          {/* <AntFooter className='Footer'>
+            <span>&copy;Copyright</span>
+          </AntFooter> */}
         </Layout>
       </main>
     </>

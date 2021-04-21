@@ -1,15 +1,14 @@
+.Search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-.Search{
+  .form {
     display: flex;
-        align-items: center;
-        justify-content: center;
-    
-    .Form{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .item{
-            margin: 0;
-        }
+    align-items: center;
+    justify-content: center;
+    .item {
+      margin: 0;
     }
+  }
 }

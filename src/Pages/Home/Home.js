@@ -1,27 +1,32 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { Spin, Space } from 'antd'
-import { getDoctors, clearFiltered } from '../../Redux/actions/doctors'
-import { clearField } from '../../Redux/actions/search'
-import Avatar from '../../Components/Avatar/Avatar'
+import Group from '../../Components/Group/Group'
+import { getDoctors } from '../../Redux/actions/doctors'
+import { clearInput } from '../../Redux/actions/inputValue'
+import { clearSearch } from '../../Redux/actions/search'
+import flatten from '../../Tools/flatten'
 import './Home.scss'
+
+
 
 const Home = () => {
     const dispatch = useDispatch()
-    useEffect(() => { 
-        dispatch(getDoctors()) 
-        dispatch(clearFiltered()) 
-        dispatch(clearField()) 
+    useEffect(() => {
+        dispatch(getDoctors())
+        dispatch(clearSearch())
+        dispatch(clearInput())
     }, [])
 
-    const doctors = useSelector(state => state.doctors.full)
-    const filtered = useSelector(state => state.doctors.filtered)
+    const doctors = useSelector(state => state.doctors)
+    const search = useSelector(state => state.search)
     const inputValue = useSelector(state => state.inputValue)
     const loading = useSelector(state => state.loading)
-   
-    const result = (filtered.length ===0 && inputValue.trim() === '') ? doctors : filtered
-   
+    const result = (search.length === 0 && inputValue.trim() === '') ? doctors : search
+    const a = []
+    const b = flatten(result.map(element => [...a, element.BeneficiaryGroupName]))
+    const GroupName = [...new Set(b)]
+
     return (
         <>
             {loading ?
@@ -31,27 +36,9 @@ const Home = () => {
                     </Space>
                 </div> :
                 <div className='Home'>
-                    <h2>پزشک عمومی :</h2>
-                    <div className='row'>
-                        <div className='innerrow'>
-                            {
-                                result.filter(el => {
-                                    return el.BeneficiaryGroupName === 'پزشک عمومی'
-                                }).map(dr => <Link to={`/profile/${dr.Id}`} key={dr.Id}><Avatar picUrl={dr.ProfilePicture} drName={dr.UserFullName} /></Link>)
-                            }
-                        </div> 
-                    </div>
-                    <h2>پزشک متخصص :</h2>
-                    <div className='row'>
-                        <div className='innerrow'>
-                            {
-                                result.filter(el => {
-                                    return el.BeneficiaryGroupName === 'پزشک فوق متخصص'
-                                }).map(dr => <Link to={`/profile/${dr.Id}`} key={dr.Id}><Avatar picUrl={dr.ProfilePicture} drName={dr.UserFullName} /></Link>)
-                            }
-                        </div>
-                    </div>
-
+                    {
+                        GroupName.map(el => <Group key={Math.random()} GroupName={el} result={result} />)
+                    }
                 </div>}
         </>
     )

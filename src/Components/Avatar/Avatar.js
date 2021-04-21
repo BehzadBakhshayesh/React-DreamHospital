@@ -1,7 +1,7 @@
 import React from 'react'
 import './Avatar.scss'
 
-const Avatar = ({ picUrl, drName }) => {
+const Avatar = ({picUrl, drName }) => {
 
     return (
         <>

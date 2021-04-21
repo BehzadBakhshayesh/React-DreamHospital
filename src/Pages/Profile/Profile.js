@@ -6,7 +6,7 @@ import './Profile.scss'
 
 const Profile = () => {
     const { id } = useParams()
-    const doctors = useSelector(state => state.doctors.full)
+    const doctors = useSelector(state => state.doctors)
 
     return (
         <>
@@ -23,7 +23,7 @@ const Profile = () => {
                             <li>
                                 <Button type="primary">
                                     <Link to='/' style={{ color: '#fff' }}>
-                                        بازگشت به لیست پزشکان 
+                                        بازگشت به لیست پزشکان
                                     </Link>
                                 </Button>
                             </li>

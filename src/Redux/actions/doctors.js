@@ -1,22 +1,10 @@
 import axios from 'axios'
+import {loading} from './loading'
 
 export function doctors (data){
     return{
         type: 'DOCTORS',
         payload: data
-    }
-}
-
-
-export function loading (data){
-    return{
-        type: 'LOADING',
-        payload: data
-    }
-}
-export function clearFiltered (){
-    return{
-        type: 'CLEAR_FILTERED',
     }
 }
 

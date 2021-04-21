@@ -5,9 +5,9 @@ import logo from '../../Assets/images/logo.png'
 import './Header.scss'
 
 const Header = () => {
-
+    
      const {pathname} = useLocation()
-     console.log(pathname);
+
     return (
         <>
             <header className='Header'>
