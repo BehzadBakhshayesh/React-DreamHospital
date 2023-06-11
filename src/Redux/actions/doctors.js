@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {loading} from './loading'
+import { message } from 'antd'
 
 export function doctors (data){
     return{
@@ -13,7 +14,7 @@ export function getDoctors(){
         dispatch(loading (true))
         axios('https://thdev.atiehhospital.ir/odata/PhysicianDto')
         .then(response => dispatch(doctors(response.data.value)))
-        .catch(err => alert(err))
+        .catch(err =>  message.error(`${err}`))
         .finally(()=>dispatch(loading (false)))
     } 
 }

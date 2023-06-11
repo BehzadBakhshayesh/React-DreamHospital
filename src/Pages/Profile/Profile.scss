@@ -33,8 +33,13 @@ $color2:#1890ff;
             flex-basis: 50%;
             @include flx;
             justify-content: center;
+            }
             img{
                 max-width: 400px;
+                border-radius: 10px;
+                transition: box-shadow ease 0.3s;
+                &:hover{
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
             }
         }
     }

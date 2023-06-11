@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { loading } from './loading'
+import { message } from 'antd'
 
 export function search(data) {
     return {
@@ -19,7 +20,7 @@ export function getSearch(name) {
         dispatch(loading(true))
         axios(`https://thdev.atiehhospital.ir/odata/PhysicianDto?$filter=contains(tolower(UserFullName),%27${name}%27)`)
         .then(response => { dispatch(search(response.data.value)) })
-        .catch(err => alert(err))
+        .catch(err =>  message.error(`${err}`))
         .finally(() => dispatch(loading(false)))
     }
 }

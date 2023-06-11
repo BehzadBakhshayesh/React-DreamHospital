@@ -23,7 +23,7 @@ const Search = () => {
         <>
             <div className='Search'>
                 <form className='form' onSubmit={(e) => submitHandle(e)}>
-                    <Input placeholder='...جستجو' onChange={(e) => changeHandle(e)} value={input} />
+                    <Input placeholder='جستجو...' onChange={(e) => changeHandle(e)} value={input} />
                     <Button htmlType='submit' icon={<SearchOutlined />} />
                 </form>
             </div>

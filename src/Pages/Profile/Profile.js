@@ -1,8 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useParams, Link, Redirect } from 'react-router-dom'
-import { Button } from 'antd';
+import { Button, } from 'antd'
 import './Profile.scss'
+
+
 
 const Profile = () => {
     const { id } = useParams()
@@ -33,7 +35,6 @@ const Profile = () => {
                         <img src={dr.ProfilePicture} alt='' />
                     </div>
                 </div>)}
-
             </div>
             {doctors.length === 0 && <Redirect to='/' />}
         </>
